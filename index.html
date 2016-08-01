@@ -54,13 +54,13 @@
         }
         else{
 
-            //ask for 720p resolution
+            //ToDo: use adapter.js and use the new constraint format
             var constraints = {
                 audio: false,           //no need for audio
                 video: {
                     mandatory: {
-                       minWidth: w,
-                       minHeight: h
+                       maxWidth: w,
+                       maxHeight: h
                     }
                 }
             };
@@ -98,7 +98,6 @@
                 //see if webkit stats are available; exit if they aren't
                 if (!video.webkitDecodedFrameCount){
                     console.log("Video FPS calcs not supported");
-                    return;
                 }
                 //get the stats
                 else{
@@ -124,7 +123,7 @@
                             "<tr><td>Dropped</td><td>" + droppedFrames + "</td><td>" + droppedFPSavg.toFixed() + "</td><td>" + currentDroppedFPS.toFixed() + "</td></tr>" +
                             "<tr><td>All</td><td>" + (decodedFrames + droppedFrames) + "</td><td>" + (decodedFPSavg + droppedFPSavg).toFixed() + "</td><td>" + (currentDecodedFPS + currentDroppedFPS).toFixed() + "</td></tr></table>" +
                             "Camera resolution: " + video.videoWidth + " x " + video.videoHeight;
-                    $("#stats")[0].html(stats);
+                    $("#stats").html(stats);
 
                 }
             }, 1000);
