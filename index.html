@@ -118,12 +118,14 @@
                     droppedFrames = video.webkitDroppedFrameCount;
 
                     //write the results to a table
-                    $("#stats")[0].html =
+                    var stats =
                             "<table><tr><th>Type</th><th>Total</th><th>Avg</th><th>Current</th></tr>" +
                             "<tr><td>Decoded</td><td>" + decodedFrames + "</td><td>" + decodedFPSavg.toFixed() + "</td><td>" + currentDecodedFPS.toFixed()+ "</td></tr>" +
                             "<tr><td>Dropped</td><td>" + droppedFrames + "</td><td>" + droppedFPSavg.toFixed() + "</td><td>" + currentDroppedFPS.toFixed() + "</td></tr>" +
                             "<tr><td>All</td><td>" + (decodedFrames + droppedFrames) + "</td><td>" + (decodedFPSavg + droppedFPSavg).toFixed() + "</td><td>" + (currentDecodedFPS + currentDroppedFPS).toFixed() + "</td></tr></table>" +
                             "Camera resolution: " + video.videoWidth + " x " + video.videoHeight;
+                    $("#stats")[0].html(stats);
+
                 }
             }, 1000);
         }
