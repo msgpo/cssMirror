@@ -57,11 +57,9 @@
             //ToDo: use adapter.js and use the new constraint format
             var constraints = {
                 audio: false,           //no need for audio
-                video: {
-                    mandatory: {
-                       maxWidth: w,
-                       maxHeight: h
-                    }
+                video: {                //ToDO: add adapter.js and use new constaints format
+                       width: w,
+                       height: h
                 }
             };
 
