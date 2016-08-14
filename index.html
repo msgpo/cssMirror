@@ -58,8 +58,11 @@
             var constraints = {
                 audio: false,           //no need for audio
                 video: {                //ToDO: add adapter.js and use new constaints format
-                       minWidth: w,
-                       minHeight: h
+                       mandatory: 
+                       {
+                        minWidth: w,
+                        minHeight: h
+                       }
                 }
             };
 
